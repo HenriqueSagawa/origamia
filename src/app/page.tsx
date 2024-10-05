@@ -12,14 +12,14 @@ export default function Home() {
       <div className="justify-around py-4 hidden md:flex">
         <User
           name="Parcelamento"
-          description="Em até 3x sem juros"
+          description="Em até 3x com juros"
           avatarProps={{
             icon: <FaCreditCard size={20} />,
           }}
         />
         <User
           name="Troca Grátis"
-          description="Para a primeira compra"
+          description="Para a 23º compra"
           avatarProps={{
             icon: <PiArrowsClockwiseFill size={20} />,
           }}
