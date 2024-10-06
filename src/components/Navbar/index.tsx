@@ -18,11 +18,48 @@ import { FaSearch, FaRegUserCircle } from "react-icons/fa";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { RiTeamFill } from "react-icons/ri";
 import { ToggleTheme } from "../ThemeSwitcher";
+import { Button } from "@nextui-org/react";
+
+const AvatarDropdown = () => {
+  return (
+    <Dropdown placement="bottom-end">
+      <DropdownTrigger>
+        <Avatar
+          isBordered
+          as="button"
+          className="transition-transform"
+          color="secondary"
+          name="Jason Hughes"
+          size="sm"
+          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+        />
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Profile Actions" variant="flat">
+        <DropdownItem key="profile" className="h-14 gap-2">
+          <p className="font-semibold">Signed in as</p>
+          <p className="font-semibold">zoey@example.com</p>
+        </DropdownItem>
+        <DropdownItem key="settings">My Settings</DropdownItem>
+        <DropdownItem key="team_settings">Team Settings</DropdownItem>
+        <DropdownItem key="analytics">Analytics</DropdownItem>
+        <DropdownItem key="system">System</DropdownItem>
+        <DropdownItem key="configurations">Configurations</DropdownItem>
+        <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+        <DropdownItem key="logout" color="danger">
+          Log Out
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  )
+}
 
 
 export function NavbarComponent() {
+
+  const isLogged = false;
+
   return (
-    <Navbar isBordered>
+    <Navbar isBordered shouldHideOnScroll>
       <NavbarContent justify="start">
         <NavbarBrand className="mr-4">
           <Link href="/" className="text-black dark:text-white">
@@ -66,35 +103,11 @@ export function NavbarComponent() {
           type="search"
         />
         <ToggleTheme />
-        <Dropdown placement="bottom-end">
-          <DropdownTrigger>
-            <Avatar
-              isBordered
-              as="button"
-              className="transition-transform"
-              color="secondary"
-              name="Jason Hughes"
-              size="sm"
-              src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-            />
-          </DropdownTrigger>
-          <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="h-14 gap-2">
-              <p className="font-semibold">Signed in as</p>
-              <p className="font-semibold">zoey@example.com</p>
-            </DropdownItem>
-            <DropdownItem key="settings">My Settings</DropdownItem>
-            <DropdownItem key="team_settings">Team Settings</DropdownItem>
-            <DropdownItem key="analytics">Analytics</DropdownItem>
-            <DropdownItem key="system">System</DropdownItem>
-            <DropdownItem key="configurations">Configurations</DropdownItem>
-            <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
-            <DropdownItem key="logout" color="danger">
-              Log Out
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-      </NavbarContent>
-    </Navbar>
+        {isLogged ? (
+          <AvatarDropdown />
+        ): (<Link href="/Login"><Button variant="flat" color="primary">Entrar</Button></Link>)}
+
+    </NavbarContent>
+    </Navbar >
   );
 }

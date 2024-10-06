@@ -1,14 +1,15 @@
+"use client"
 import { NavbarComponent } from "@/components/Navbar";
 import { User } from "@nextui-org/react";
 import { FaCreditCard } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
 import { PiArrowsClockwiseFill } from "react-icons/pi";
-import { Products } from "@/components/Products"
+import { Products } from "@/components/Products";
+import { Contact } from "@/components/Contact";
 
 export default function Home() {
   return (
     <div>
-      <NavbarComponent />
       <div className="justify-around py-4 hidden md:flex">
         <User
           name="Parcelamento"
@@ -49,7 +50,7 @@ export default function Home() {
                 placeholder="Digite seu email"
                 className="w-full px-3 py-2.5 text-gray-400 bg-gray-300 dark:bg-gray-700 dark:focus:bg-gray-900 duration-150 outline-none rounded-lg shadow sm:max-w-sm sm:w-auto"
               />
-              <button className="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
+              <button onClick={(e) => { e.preventDefault(); }} className="flex items-center justify-center gap-x-2 py-2.5 px-4 mt-3 w-full text-sm text-white font-medium bg-sky-500 hover:bg-sky-400 active:bg-sky-600 duration-150 rounded-lg sm:mt-0 sm:w-auto">
                 Get started
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +124,7 @@ export default function Home() {
         ></div>
       </section>
 
-      
+
       <Products />
 
 
@@ -131,11 +132,11 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
-              Designed for business teams like yours
+              Projetado para equipes de negócios como a sua
+
             </h2>
             <p className="text-gray-500 sm:text-xl dark:text-gray-400">
-              Here at Flowbite we focus on markets where technology, innovation,
-              and capital can unlock long-term value and drive economic growth.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa natus amet voluptate consectetur distinctio esse. Magni quo similique quas repellat rem qui quis soluta perferendis.
             </p>
           </div>
           <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
@@ -268,6 +269,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Contact />
+
     </div>
   );
 }
